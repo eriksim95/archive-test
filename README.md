@@ -32,13 +32,13 @@ terragrunt run-all apply
 
 ## Step 1: EKS Cluster
 
-To install the EKS cluster, navigate to the following directory and apply the configuration:
+To install the EKS cluster, navigate to the following directory and apply the configuration:(note that for testing purposes I used spot instances, but in real prod environment this is not the recommended approach)
 
 ```
 cd infra/terragrunt/prod/aws/prod-backend/us-east-1/infra-01/app_cluster/010_eks
 ```
 ```
-terragrunt apply (note that for testing purposes I used spot instances, but in real prod environment this is not the recommended approach)
+terragrunt apply
 ```
 
 ## Step 2: System Charts
