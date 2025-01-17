@@ -1,0 +1,22 @@
+# Ignore Terraform and infrastructure-related files
+infra/
+*.tf
+*.tfstate
+*.tfvars
+
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore documentation files
+*.md
+
+# Ignore suggestions-for-further-improvement directory
+suggestions-for-further-improvement/
+
+# Ignore other unnecessary files and directories
+__pycache__/
+*.log
+*.tmp
+.env
+charts/

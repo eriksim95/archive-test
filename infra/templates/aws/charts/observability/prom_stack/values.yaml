@@ -1,0 +1,46 @@
+prometheus:
+  ingress:
+    enabled: false  # Disable ingress for now
+  prometheusSpec:
+    retention: 30d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: ${prometheus_server_volume_size}
+    resources:
+      requests:
+        memory: 3Gi
+        cpu: 1
+    externalUrl: ""
+
+grafana:
+  auth:
+    anonymous:
+      enabled: true  # Enable anonymous access
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_role: Viewer  # Anonymous users are viewers by default
+  ingress:
+    enabled: false  # Disable ingress
+  service:
+    type: LoadBalancer  # Set LoadBalancer for easy external access
+
+alertmanager:
+  ingress:
+    enabled: false  # Disable ingress for now
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: ${prometheus_alert_manager_volume_size}
+    resources:
+      requests:
+        memory: 400Mi
+        cpu: 100m

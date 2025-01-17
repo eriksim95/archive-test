@@ -1,0 +1,28 @@
+# Disable MongoDB authentication
+auth:
+  enabled: false  # No authentication required
+
+# Set replica count for high availability (optional)
+replicaSet:
+  enabled: false  # Set to true if you want a MongoDB replica set
+
+# Persistence settings
+persistence:
+  enabled: true
+  size: 10Gi  # Adjust the storage size as per your needs
+  accessModes:
+    - ReadWriteOnce
+
+# Service settings
+service:
+  type: ClusterIP  # Set the service type, you can use LoadBalancer if external access is needed
+  port: 27017
+
+# Resources configuration
+resources:
+  requests:
+    memory: 512Mi
+    cpu: 250m
+  limits:
+    memory: 1Gi
+    cpu: 500m
